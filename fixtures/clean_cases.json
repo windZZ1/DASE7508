@@ -1,0 +1,478 @@
+[
+  {
+    "id": "coupon_cheapest",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 15000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-a",
+      "SAVE20",
+      14000
+    ]
+  },
+  {
+    "id": "no_option_budget",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 8000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "rating_boundary",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 15000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.5",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-a",
+      "SAVE20",
+      14000
+    ]
+  },
+  {
+    "id": "budget_boundary",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 14000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-a",
+      "SAVE20",
+      14000
+    ]
+  },
+  {
+    "id": "one_cent_over_budget",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 13999,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "rating_below_boundary",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 15000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.49",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-b",
+      null,
+      14500
+    ]
+  },
+  {
+    "id": "equal_price_id_tie",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 15000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          },
+          {
+            "coupon_code": "SAVE20",
+            "total_cents": 14000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-a",
+      "SAVE20",
+      14000
+    ]
+  },
+  {
+    "id": "no_coupon_available",
+    "task": {
+      "city": "Dubai",
+      "check_in": "2026-12-01",
+      "check_out": "2026-12-02",
+      "max_total_cents": 15000,
+      "min_rating": "4.5",
+      "currency": "USD"
+    },
+    "hotels": [
+      {
+        "hotel_id": "dubai-a",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.6",
+        "description": "A quiet hotel near public transport.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 16000
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-b",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.8",
+        "description": "A centrally located hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 14500
+          }
+        ]
+      },
+      {
+        "hotel_id": "dubai-c",
+        "city": "Dubai",
+        "currency": "USD",
+        "rating": "4.2",
+        "description": "An inexpensive hotel.",
+        "quotes": [
+          {
+            "coupon_code": null,
+            "total_cents": 9000
+          }
+        ]
+      }
+    ],
+    "expected": [
+      "dubai-b",
+      null,
+      14500
+    ]
+  }
+]
