@@ -1,0 +1,9 @@
+[
+  {
+    "coupon_code": "SAVE20",
+    "hotel_id": "dubai-a",
+    "discount_cents": 2000,
+    "valid_from": "2026-01-01",
+    "valid_until": "2027-12-31"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "hotel_id": "dubai-a",
+    "name": "Dubai Transit Hotel",
+    "city": "Dubai",
+    "currency": "USD",
+    "rating": "4.6",
+    "description": "A quiet hotel near public transport.",
+    "base_price_cents": 16000,
+    "available": true
+  },
+  {
+    "hotel_id": "dubai-b",
+    "name": "Dubai Central Hotel",
+    "city": "Dubai",
+    "currency": "USD",
+    "rating": "4.8",
+    "description": "A centrally located hotel.",
+    "base_price_cents": 14500,
+    "available": true
+  },
+  {
+    "hotel_id": "dubai-c",
+    "name": "Dubai Budget Hotel",
+    "city": "Dubai",
+    "currency": "USD",
+    "rating": "4.2",
+    "description": "An inexpensive hotel.",
+    "base_price_cents": 9000,
+    "available": true
+  }
+]
