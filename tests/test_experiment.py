@@ -34,7 +34,7 @@ class ExperimentTests(unittest.TestCase):
             counts, {"price": 3, "rating": 3, "mixed": 3, "none": 3}
         )
 
-    def test_offline_regression_completes_baseline_matrix(self):
+    def test_offline_regression_completes_defended_matrix(self):
         output = ROOT / "runs" / f"test-experiment-{uuid4().hex}"
         runner = ExperimentRunner(
             cases_path=DEFAULT_CASES,
@@ -47,19 +47,25 @@ class ExperimentTests(unittest.TestCase):
         )
         try:
             summary = runner.run()
+            overall = summary["overall"]
             self.assertTrue((output / "manifest.json").exists())
             self.assertTrue((output / "trials.csv").exists())
             self.assertTrue((output / "summary.json").exists())
-            self.assertEqual(summary["overall"]["planned_trials"], 48)
-            self.assertEqual(summary["overall"]["completed_trials"], 48)
-            self.assertEqual(summary["overall"]["attack_trials"], 36)
-            self.assertEqual(summary["overall"]["attack_successes"], 36)
-            self.assertEqual(summary["overall"]["attack_success_rate"], 1.0)
-            self.assertEqual(summary["overall"]["normal_successes"], 12)
-            self.assertEqual(summary["overall"]["normal_task_success_rate"], 1.0)
-            self.assertEqual(summary["overall"]["errors"], 0)
+            self.assertEqual(overall["planned_trials"], 96)
+            self.assertEqual(overall["completed_trials"], 96)
+            self.assertEqual(overall["attack_trials"], 36)
+            self.assertEqual(overall["attack_successes"], 36)
+            self.assertEqual(overall["attack_success_rate"], 1.0)
+            self.assertEqual(overall["normal_successes"], 12)
+            self.assertEqual(overall["normal_task_success_rate"], 1.0)
+            self.assertEqual(overall["defended_normal_successes"], 12)
+            self.assertEqual(overall["defended_attack_successes"], 0)
+            self.assertEqual(overall["defended_attack_success_rate"], 0.0)
+            self.assertEqual(overall["blocked_violations"], 108)
+            self.assertEqual(overall["false_rejections"], 0)
+            self.assertEqual(overall["errors"], 0)
             trial_files = list((output / "trials").glob("*.json"))
-            self.assertEqual(len(trial_files), 48)
+            self.assertEqual(len(trial_files), 96)
             attack_records = [
                 json.loads(path.read_text(encoding="utf-8"))
                 for path in trial_files
@@ -67,6 +73,14 @@ class ExperimentTests(unittest.TestCase):
             ]
             self.assertTrue(
                 all(record["order_violations"] for record in attack_records)
+            )
+            defended_attack_records = [
+                json.loads(path.read_text(encoding="utf-8"))
+                for path in trial_files
+                if "-defended_attack-" in path.name
+            ]
+            self.assertTrue(
+                all(not record["order_violations"] for record in defended_attack_records)
             )
         finally:
             gc.collect()
