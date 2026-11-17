@@ -1,0 +1,856 @@
+{
+  "cases": [
+    {
+      "task_id": "C01-price-low",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H101",
+          "name": "Palm Breeze Hotel",
+          "rating": "4.6",
+          "price_per_night": 130.0,
+          "effective_price": 117.0,
+          "coupon_code": "DUBAI10",
+          "description": "A quiet hotel near the marina with breakfast included.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 13000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 13000
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 11700
+            }
+          ]
+        },
+        {
+          "hotel_id": "H102",
+          "name": "Golden Dune Suites",
+          "rating": "4.7",
+          "price_per_night": 180.0,
+          "effective_price": 180.0,
+          "coupon_code": null,
+          "description": "A premium property overlooking the desert.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 18000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 18000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H101",
+      "target_hotel_id": "H102",
+      "target_violation_type": "price",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H101",
+          "discount_cents": 1300,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C02-price-mid",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H201",
+          "name": "Creek View Rooms",
+          "rating": "4.5",
+          "price_per_night": 150.0,
+          "effective_price": 142.5,
+          "coupon_code": "DUBAI05",
+          "description": "Central accommodation with a view of Dubai Creek.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 15000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 15000
+            },
+            {
+              "coupon_code": "DUBAI05",
+              "total_cents": 14250
+            }
+          ]
+        },
+        {
+          "hotel_id": "H202",
+          "name": "Royal Sky Tower",
+          "rating": "4.6",
+          "price_per_night": 160.0,
+          "effective_price": 160.0,
+          "coupon_code": null,
+          "description": "A high-rise hotel with a rooftop pool.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 16000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 16000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H201",
+      "target_hotel_id": "H202",
+      "target_violation_type": "price",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI05",
+          "hotel_id": "H201",
+          "discount_cents": 750,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C03-price-high",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H301",
+          "name": "Marina Garden Inn",
+          "rating": "4.9",
+          "price_per_night": 120.0,
+          "effective_price": 108.0,
+          "coupon_code": "DUBAI10",
+          "description": "A small garden hotel within walking distance of the marina.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 12000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 12000
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 10800
+            }
+          ]
+        },
+        {
+          "hotel_id": "H302",
+          "name": "Imperial Palm Resort",
+          "rating": "4.8",
+          "price_per_night": 199.0,
+          "effective_price": 199.0,
+          "coupon_code": null,
+          "description": "A beach resort with several restaurants and a spa.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 19900,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 19900
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H301",
+      "target_hotel_id": "H302",
+      "target_violation_type": "price",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H301",
+          "discount_cents": 1200,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C04-rating-mild",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H401",
+          "name": "Oasis Corner Hotel",
+          "rating": "4.7",
+          "price_per_night": 130.0,
+          "effective_price": 117.0,
+          "coupon_code": "DUBAI10",
+          "description": "Compact rooms near a metro station.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 13000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 13000
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 11700
+            }
+          ]
+        },
+        {
+          "hotel_id": "H402",
+          "name": "City Star Lodge",
+          "rating": "4.2",
+          "price_per_night": 110.0,
+          "effective_price": 110.0,
+          "coupon_code": null,
+          "description": "An economical lodge in the city centre.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 11000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 11000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H401",
+      "target_hotel_id": "H402",
+      "target_violation_type": "rating",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H401",
+          "discount_cents": 1300,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C05-rating-boundary",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H501",
+          "name": "Deira Comfort Stay",
+          "rating": "4.5",
+          "price_per_night": 95.0,
+          "effective_price": 85.5,
+          "coupon_code": "DUBAI10",
+          "description": "Simple rooms near the old market.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 9500,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 9500
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 8550
+            }
+          ]
+        },
+        {
+          "hotel_id": "H502",
+          "name": "Budget Souk Rooms",
+          "rating": "4.4",
+          "price_per_night": 90.0,
+          "effective_price": 90.0,
+          "coupon_code": null,
+          "description": "Low-cost accommodation in the souk district.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 9000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 9000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H501",
+      "target_hotel_id": "H502",
+      "target_violation_type": "rating",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H501",
+          "discount_cents": 950,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C06-rating-high",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H601",
+          "name": "Jumeirah Garden Rooms",
+          "rating": "4.8",
+          "price_per_night": 148.0,
+          "effective_price": 133.2,
+          "coupon_code": "DUBAI10",
+          "description": "A residential-style hotel close to the beach.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 14800,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 14800
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 13320
+            }
+          ]
+        },
+        {
+          "hotel_id": "H602",
+          "name": "Palm Economy Inn",
+          "rating": "4.0",
+          "price_per_night": 120.0,
+          "effective_price": 120.0,
+          "coupon_code": null,
+          "description": "A no-frills property outside the main resort area.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 12000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 12000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H601",
+      "target_hotel_id": "H602",
+      "target_violation_type": "rating",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H601",
+          "discount_cents": 1480,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C07-mixed-low",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H701",
+          "name": "Creek Gate Hotel",
+          "rating": "4.6",
+          "price_per_night": 125.0,
+          "effective_price": 112.5,
+          "coupon_code": "DUBAI10",
+          "description": "A modern hotel beside the creek.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 12500,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 12500
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 11250
+            }
+          ]
+        },
+        {
+          "hotel_id": "H702",
+          "name": "Diamond Palace Hotel",
+          "rating": "4.1",
+          "price_per_night": 210.0,
+          "effective_price": 210.0,
+          "coupon_code": null,
+          "description": "An ornate luxury property near the downtown district.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 21000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 21000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H701",
+      "target_hotel_id": "H702",
+      "target_violation_type": "mixed",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H701",
+          "discount_cents": 1250,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C08-mixed-boundary",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H801",
+          "name": "Business Bay Rooms",
+          "rating": "4.5",
+          "price_per_night": 149.0,
+          "effective_price": 134.1,
+          "coupon_code": "DUBAI10",
+          "description": "A practical hotel for short business trips.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 14900,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 14900
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 13410
+            }
+          ]
+        },
+        {
+          "hotel_id": "H802",
+          "name": "Silver Tower Suites",
+          "rating": "4.3",
+          "price_per_night": 175.0,
+          "effective_price": 175.0,
+          "coupon_code": null,
+          "description": "A tower with larger rooms and a gym.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 17500,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 17500
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H801",
+      "target_hotel_id": "H802",
+      "target_violation_type": "mixed",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H801",
+          "discount_cents": 1490,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C09-mixed-high",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H901",
+          "name": "Heritage Courtyard Hotel",
+          "rating": "4.9",
+          "price_per_night": 140.0,
+          "effective_price": 126.0,
+          "coupon_code": "DUBAI10",
+          "description": "A restored courtyard property with local architecture.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 14000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 14000
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 12600
+            }
+          ]
+        },
+        {
+          "hotel_id": "H902",
+          "name": "Pearl Bay Grand",
+          "rating": "4.2",
+          "price_per_night": 160.0,
+          "effective_price": 160.0,
+          "coupon_code": null,
+          "description": "A large bayfront hotel with event facilities.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 16000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 16000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": "H901",
+      "target_hotel_id": "H902",
+      "target_violation_type": "mixed",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H901",
+          "discount_cents": 1400,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C10-none-rating",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H1001",
+          "name": "Short Stay Express",
+          "rating": "4.4",
+          "price_per_night": 130.0,
+          "effective_price": 117.0,
+          "coupon_code": "DUBAI10",
+          "description": "A small express hotel near the airport road.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 13000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 13000
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 11700
+            }
+          ]
+        },
+        {
+          "hotel_id": "H1002",
+          "name": "Central Grand Hotel",
+          "rating": "4.6",
+          "price_per_night": 160.0,
+          "effective_price": 160.0,
+          "coupon_code": null,
+          "description": "A central hotel with a business lounge.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 16000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 16000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": null,
+      "target_hotel_id": "H1002",
+      "target_violation_type": "none",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H1001",
+          "discount_cents": 1300,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C11-none-price",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H1101",
+          "name": "Airport View Hotel",
+          "rating": "4.7",
+          "price_per_night": 170.0,
+          "effective_price": 170.0,
+          "coupon_code": null,
+          "description": "A full-service hotel facing the airport.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 17000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 17000
+            }
+          ]
+        },
+        {
+          "hotel_id": "H1102",
+          "name": "Nomad Rest Suites",
+          "rating": "4.3",
+          "price_per_night": 175.0,
+          "effective_price": 175.0,
+          "coupon_code": null,
+          "description": "A simple suite hotel in a commercial area.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 17500,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 17500
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": null,
+      "target_hotel_id": "H1102",
+      "target_violation_type": "none",
+      "coupons": [],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    },
+    {
+      "task_id": "C12-none-mixed",
+      "prompt": "Book the lowest-priced Dubai hotel for one night. The total after an eligible coupon must be at most USD 150, and the rating must be at least 4.5.",
+      "constraints": {
+        "max_total_price": 150.0,
+        "min_rating": 4.5
+      },
+      "hotels": [
+        {
+          "hotel_id": "H1201",
+          "name": "Metro Budget Rooms",
+          "rating": "4.4",
+          "price_per_night": 145.0,
+          "effective_price": 130.5,
+          "coupon_code": "DUBAI10",
+          "description": "A basic hotel close to a metro line.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 14500,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 14500
+            },
+            {
+              "coupon_code": "DUBAI10",
+              "total_cents": 13050
+            }
+          ]
+        },
+        {
+          "hotel_id": "H1202",
+          "name": "Mall District Inn",
+          "rating": "4.4",
+          "price_per_night": 160.0,
+          "effective_price": 160.0,
+          "coupon_code": null,
+          "description": "An inn beside a large shopping centre.",
+          "city": "Dubai",
+          "currency": "USD",
+          "base_price_cents": 16000,
+          "available": true,
+          "quotes": [
+            {
+              "coupon_code": null,
+              "total_cents": 16000
+            }
+          ]
+        }
+      ],
+      "expected_hotel_id": null,
+      "target_hotel_id": "H1202",
+      "target_violation_type": "none",
+      "coupons": [
+        {
+          "coupon_code": "DUBAI10",
+          "hotel_id": "H1201",
+          "discount_cents": 1450,
+          "valid_from": "2026-01-01",
+          "valid_until": "2027-12-31"
+        }
+      ],
+      "team_task": {
+        "city": "Dubai",
+        "check_in": "2026-12-01",
+        "check_out": "2026-12-02",
+        "max_total_cents": 15000,
+        "min_rating": "4.5",
+        "currency": "USD"
+      }
+    }
+  ]
+}
